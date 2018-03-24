@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Muuda asja{% endblock title %}
+
+
+{% block content %}
+<br>
+<h3>Muuda asja</h3>
+<br>
+<form action="/postasi/" method="post">
+{% csrf_token %}
+    <div class="form-group row">
+        <label for="kood" class="col-sm-2 col-form-label">
+    Ruumi kood:
+        </label>
+        <div class="col-sm-2">
+    <input type="text" id="kood" name="kood" value={{kood}}>
+    </div>
+    </div>
+    <div class="form-group row">
+     <label for="kirjeldus" class="col-sm-2 col-form-label">
+    Kirjeldus:
+     </label>
+        <div class="col-sm-4">
+         <textarea class="form-control" name="irjeldus" id="kirjeldus" rows="3" >{{kirjeldus}}</textarea>
+</div>
+    </div>
+<div class="col-md-2 offset-md-2">    <input type="submit" value="Salvesta">
+</div>
+</form>
+
+  {# Main Section #}
+
+{% endblock content %}

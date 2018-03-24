@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Asjad{% endblock title %}
+
+
+{% block content %}
+<br>
+<h3>Asjad</h3>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Kood</th>
+      <th scope="col">Kirjeldus</th>
+        <th scope="col">Ruum</th>
+      <th scope="col">Lisatud</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for kood,kirjeldus,aeg,ruum in asjad %}
+  <tr>
+    <th scope="row"><a href="/asidetails/?k={{kood}}">{{kood}}</a></th>
+   <td>{{kirjeldus}}</td>
+     <td>{{ruum}}</td>
+
+   <td>{{aeg}}</td>
+    <td>
+      <a href="/asiedit/?k={{kood}}">
+        <div style="color:Black">
+          <i class="far fa-edit fa-lg"></i>
+        </div>
+      </a></td>
+    <td>
+      <a href="/ruumdel/?k={{ruumikood}}">
+        <div style="color:Red">
+          <i class="far fa-trash-alt fa-lg"></i>
+    </div>
+      </a>
+    </td>
+</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{# Main Section #}
+
+{% endblock content %}

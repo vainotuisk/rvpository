@@ -1,0 +1,33 @@
+{% load staticfiles %}
+{% if msg %}
+<script>
+    alert('{{msg}}')
+</script>
+{% endif %}
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'signin.css' %}">
+    <title>Sisselogimine</title>
+</head>
+<body class="text-center">
+
+<form action="/postsign/" method="post" class="form-signin">
+     <h1 class="h3 mb-3 font-weight-normal">Logi sisse</h1>
+    {% csrf_token %}
+<label for="inputEmail" class="sr-only">E-posti aaddress</label>
+
+    <input type="email" name="e-post" id="inputEmail" class="form-control" placeholder="E-post" required autofocus>
+<label for="inputPassword" class="sr-only">E-posti aaddress</label>
+    <input type="password" name="salakas" id="inputPassword" class="form-control" placeholder="Salasõna" required>
+    <input type="submit" value="Sisene">
+    <p class="mt-5 mb-3 text-muted">&copy; Riistware</p>
+</form>
+
+</body>
+</html>

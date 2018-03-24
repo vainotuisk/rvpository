@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Lisa asi{% endblock title %}
+
+
+{% block content %}
+<br>
+<h3>Uue asja lisamine</h3>
+<br>
+<form action="/postasi/" method="post">
+{% csrf_token %}
+<div class="form-group row">
+    <label for="asjakood" class="col-sm-2 col-form-label">Eseme kood:</label>
+    <div class="col-sm-2">
+    <input type="text" class="form-control" name="asjakood" id="asjakood">
+    </div>
+</div>
+    <div class="form-group row">
+    <label for="asjatyyp" class="col-sm-2 col-form-label">Tüüp:</label>
+       <div class="col-sm-2">
+        <select class="form-control" id="asjatyyp" name="asjatyyp" />
+            <option value="arvuti">arvuti</option>
+            <option value="sülearvuti">sülearvuti</option>
+            <option value="tahvel">tahvel</option>
+            <option value="printer">printer</option>
+            <option value="robot">robot</option>
+        <option value="muu">muu</option>
+
+     </select>
+       </div>
+    </div>
+
+    <div class="form-group row">
+    <label for="asjaruum" class="col-sm-2 col-form-label">Ruum:</label>
+       <div class="col-sm-2">
+        <select class="form-control" id="asjaruum" name="asjaruum" />
+
+        {% for ruumikood,kirjeldus in ruumid %}
+        <option value={{ruumikood}}>{{ruumikood}} {{kirjeldus}}</option>
+
+  {% endfor %}
+        <option value="6">muu</option>
+
+     </select>
+       </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="asjakirjeldus" class="col-sm-2 col-form-label">
+            Kirjeldus:</label>
+
+<div class="col-sm-4">
+         <textarea class="form-control" id="asjakirjeldus" name="asjakirjeldus" rows="3"></textarea>
+</div>
+    </div>
+<div class="col-md-2 offset-md-2">
+    <input type="submit" value="Lisa">
+</div>
+</form>
+{# Main Section #}
+
+{% endblock content %}

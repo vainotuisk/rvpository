@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Lisa sündmus{% endblock title %}
+{% block content %}
+<br>
+<h3>Uue sündmuse lisamine asjale {{asi}}</h3>
+<br>
+<form action="/postlugu/" method="post">
+{% csrf_token %}
+    <input type="hidden" name="kood" value={{asi}}>
+    <div class="form-group row">
+        <label for="lugu" class="col-sm-2 col-form-label">
+            Tegevuse kirjeldus:
+        </label>
+
+    <div class="col-sm-4">
+         <textarea class="form-control" id="lugu" name="lugu" rows="3"></textarea>
+    </div>
+    </div>
+<div class="col-md-2 offset-md-2">
+    <input type="submit" value="Lisa">
+</div>
+</form>
+{# Main Section #}
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Muuda ruum{% endblock title %}
+
+
+{% block content %}
+<br>
+<h3>Muuda ruum</h3>
+<br>
+<form action="/postruum/" method="post">
+{% csrf_token %}
+    <div class="form-group row">
+        <label for="ruumikood" class="col-sm-2 col-form-label">
+    Ruumi kood:
+        </label>
+        <div class="col-sm-2">
+    <input type="text" id="ruumikood" name="ruumikood" value={{ruumikood}}>
+    </div>
+    </div>
+    <div class="form-group row">
+     <label for="ruumikirjeldus" class="col-sm-2 col-form-label">
+    Kirjeldus:
+     </label>
+        <div class="col-sm-4">
+         <textarea class="form-control" name="ruumikirjeldus" id="ruumikirjeldus" rows="3" >{{ruumikirjeldus}}</textarea>
+</div>
+    </div>
+<div class="col-md-2 offset-md-2">    <input type="submit" value="Salvesta">
+</div>
+</form>
+
+  {# Main Section #}
+
+{% endblock content %}

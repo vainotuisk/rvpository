@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Asi{% endblock title %}
+
+
+{% block content %}
+<br>
+<h3>Asi</h3>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Kood</th>
+      <th scope="col">Kirjeldus</th>
+      <th scope="col">Lisatud</th>
+        <th scope="col">Muutja</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <tr>
+    <th scope="row">{{kood}}</th>
+   <td>{{kirjeldus}}</td>
+   <td>{{aeg}}</td>
+    <td>{{muutja}}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="row justify-content-end">
+  <a href="/asiedit/?k={{kood}}"><button type="button" class="btn btn-outline-secondary">Muuda</button></a><a href="/asidel/?k={{kood}}"><button type="button" class="btn btn-outline-danger">Kustuta</button></a>
+</div>
+  {# Main Section #}
+<h5>Ajalugu</h5>
+<table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">Aeg</th>
+        <th scope="col">Tegevus</th>
+        <th scope="col">Muutja</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if ajalugu %}
+{% for loolisaja,lookirjeldus,looaeg in ajalugu %}
+<tr>
+    <th scope="row">{{looaeg}}</th>
+   <td>{{lookirjeldus}}</td>
+
+    <td>{{loolisaja}}
+      </td>
+
+</td>
+  </tr>
+{% endfor %}
+  {% endif %}
+ </tbody>
+</table>
+<div class="row justify-content-end">
+<a href="/lisalugu/?k={{kood}}">
+        <button type="button" class="btn btn-outline-warning">Lisa lugu</button>
+      </a>
+</div>
+{% endblock content %}
